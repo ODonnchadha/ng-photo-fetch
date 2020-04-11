@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FetchPhotoService } from '../../services/fetch-photo.service';
+import { IPhoto } from '../../interfaces/IPhoto';
 
 @Component({
   selector: 'app-fetch-photo-component',
@@ -6,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./fetch-photo-component.css']
 })
 export class FetchPhotoComponent implements OnInit {
-
-  constructor() { }
-
+  constructor(private service: FetchPhotoService) { 
+    this.service.get().subscribe((photo: IPhoto) => {
+      console.log(photo.urls.regular);
+    });
+  }
   ngOnInit(): void {
   }
-
 }

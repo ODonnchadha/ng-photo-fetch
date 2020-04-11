@@ -1,4 +1,4 @@
-- So you want to wire up an Angular application to RxJS?
+- So you want to wire up an Angular application with RxJS?
 
     - Add the HttpClientModule to the AppModule's list of imports.
     ```typescript
@@ -16,10 +16,10 @@
 
     - Use dependency injection to obtain access to the HttpClient within the associated service.
     ```typescript
-    import { HttpClient } from '@angular/common/http';
+        import { HttpClient } from '@angular/common/http';
 
-    constructor(private client: HttpClient) { 
-    }
+        constructor(private client: HttpClient) { 
+        }
     ```
 
     - Review the associated API's documentation.
