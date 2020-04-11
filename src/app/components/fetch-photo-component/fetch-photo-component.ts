@@ -8,9 +8,16 @@ import { IPhoto } from '../../interfaces/IPhoto';
   styleUrls: ['./fetch-photo-component.css']
 })
 export class FetchPhotoComponent implements OnInit {
-  constructor(private service: FetchPhotoService) { 
+  url: string;
+  constructor(private service: FetchPhotoService) {
+    this.fetch();
+  }
+  onClick(): void {
+    this.fetch();
+  }
+  fetch(): void {
     this.service.get().subscribe((photo: IPhoto) => {
-      console.log(photo.urls.regular);
+      this.url = photo.urls.regular;
     });
   }
   ngOnInit(): void {
